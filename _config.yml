@@ -1,7 +1,7 @@
 # Setup
 title: 'Le Cours d'Informatique Manquant'
-url: https://ucl-ingi.github.io/missing-semester/
-baseurl: "/missing-semester/"
+url: https://ucl-ingi.github.io/
+#baseurl: "/missing-semester/"
 
 # Settings
 markdown: kramdown
