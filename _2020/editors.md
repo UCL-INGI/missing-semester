@@ -8,19 +8,19 @@ video:
   id: a6Q8Na575qc
 ---
 
-Écrire des textes en anglais et écrire du code sont des activités très différentes. En programmation, vous passez plus de temps à changer de fichier, à lire, à naviguer et à éditer du code qu'à écrire un long texte. Il est donc logique qu'il existe différents types de programmes pour écrire des textes en anglais et du code (par exemple, Microsoft Word et Visual Studio Code).
+Écrire des textes en anglais et écrire du code sont des activités très différentes. En programmation, vous passez plus de temps à changer de fichier, à lire, à naviguer et à éditer du code qu'à écrire un long texte. Il est donc logique qu'il existe différents types de programmes pour écrire des textes en anglais et du code (par exemple, Microsoft Word ou Visual Studio Code).
 
-En tant que programmeurs, nous passons le plus clair de notre temps à éditer du code, et il vaut donc la peine d'investir du temps dans la maîtrise d'un éditeur adapté à vos besoins. Voici comment apprendre un nouvel éditeur :
+En tant que programmeurs, nous passons le plus de notre temps à éditer du code, et il en vaut la peine d'investir du temps dans la maîtrise d'un éditeur adapté à vos besoins. Voici comment apprendre un nouvel éditeur :
 
-- Commencez par un tutoriel (c'est-à-dire ce cours, plus les ressources que nous indiquons).
+- Commencez par un tutoriel (ce cours, plus les ressources que nous indiquons).
 - Utilisez l'éditeur pour tous vos besoins en matière d'édition de texte (même si cela vous ralentit au début).
 - Renseignez-vous au fur et à mesure : si vous avez l'impression qu'il devrait y avoir une meilleure façon de faire quelque chose, c'est probablement le cas.
 
-Si vous suivez la méthode ci-dessus, en vous engageant pleinement à utiliser le nouveau programme pour tous vos besoins d'édition de texte, la ligne du temps d'apprentissage d'un éditeur de texte sophistiqué se présente comme suit. En une heure ou deux, vous apprendrez les fonctionnalités de base de l'éditeur, telles que l'ouverture et la modification de fichiers, enregistrer/quitter et la navigation dans le texte. Au bout de 20 heures, vous devriez être aussi rapide qu'avec votre ancien éditeur. Après cela, les avantages commencent : vous aurez acquis suffisamment de connaissances et de mémoire musculaire pour que l'utilisation du nouvel éditeur vous fasse gagner du temps. Les éditeurs de texte modernes sont des outils sophistiqués et puissants, de sorte que l'apprentissage ne s'arrête jamais : vous deviendrez encore plus rapide au fur et à mesure que vous en apprendrez davantage.
+Si vous suivez la méthode ci-dessus, en vous engageant pleinement à utiliser le nouveau éditeur pour tous vos besoins d'édition de texte, la ligne du temps d'apprentissage d'un éditeur de texte se présente comme suit. En une heure ou deux, vous apprendrez les fonctionnalités de base de l'éditeur, telles que l'ouverture et la modification de fichiers, enregistrer/quitter et la navigation dans le texte. Au bout de 20 heures, vous devriez être aussi rapide qu'avec votre ancien éditeur. Après cela, les avantages commencent : vous aurez acquis suffisamment de connaissances et de mémoire musculaire pour que l'utilisation du nouvel éditeur vous fasse gagner du temps. Les éditeurs de texte modernes sont des outils sophistiqués et puissants, de sorte que l'apprentissage ne s'arrête jamais : vous deviendrez encore plus rapide au fur et à mesure que vous en apprendrez davantage.
 
 # Quel éditeur apprendre ?
 
-Les programmeurs ont des [opinions bien arrêtées](https://en.wikipedia.org/wiki/Editor_war) sur leurs éditeurs de texte préférés.
+Les programmeurs ont des [opinions bien tranchées](https://en.wikipedia.org/wiki/Editor_war) sur leurs éditeurs de texte préférés.
 
 Quels sont les éditeurs les plus populaires aujourd'hui ? Voir [cette enquête de Stack Overflow](https://insights.stackoverflow.com/survey/2019/#development-environments-and-tools) (il pourrait y avoir des biais car les utilisateurs de Stack Overflow ne sont pas forcément représentatifs de l'ensemble des programmeurs). [Visual Studio
 Code](https://code.visualstudio.com/) est l'éditeur le plus populaire. [Vim](https://www.vim.org/) est l'éditeur en ligne de commande le plus populaire.
@@ -33,7 +33,7 @@ Il n'est pas possible d'enseigner toutes les fonctionnalités de Vim en 50 minut
 
 # La philosophie de Vim
 
-En programmation, on passe le plus clair de son temps à lire/éditer, et non à écrire. C'est pourquoi Vim est un éditeur _modal_ : il dispose de différents modes pour l'insertion de texte et la manipulation de texte. Vim est programmable (avec Vimscript et d'autres langages comme Python), et l'interface de Vim elle-même est un langage de programmation : les touches (avec des noms mnémoniques) sont des commandes, et ces commandes sont composables. Vim évite l'utilisation de la souris, parce qu'elle est trop lente ; Vim évite même d'utiliser les touches fléchées, parce qu'elles nécessitent trop de mouvements.
+En programmation, on passe le plus de son temps à lire/éditer, et non à écrire. C'est pourquoi Vim est un éditeur _modal_ : il dispose de différents modes pour l'insertion de texte et la manipulation de texte. Vim est programmable (avec Vimscript et d'autres langages comme Python), et l'interface de Vim elle-même est un langage de programmation : les touches (avec des noms mnémoniques) sont des commandes, et elles sont composables. Vim évite l'utilisation de la souris, parce qu'elle est trop lente ; Vim évite même d'utiliser les touches fléchées, parce qu'elles nécessitent trop de mouvements.
 
 Le résultat final est un éditeur qui peut s'adapter à la vitesse à laquelle vous pensez.
 
@@ -49,7 +49,7 @@ La conception de Vim repose sur l'idée qu'une grande partie du temps des progra
 
 Les touches ont des significations différentes selon les modes de fonctionnement. Par exemple, la lettre `x` en mode Insert insère simplement le caractère littéral "x", mais en mode Normal, elle supprime le caractère sous le curseur, et en mode Visuel, elle supprime la sélection.
 
-Dans sa configuration par défaut, Vim affiche le mode actuel en bas à gauche. Le mode initial/par défaut est le mode Normal. Vous passerez généralement le plus clair de votre temps entre le mode Normal et le mode Insert.
+Dans sa configuration par défaut, Vim affiche le mode actuel en bas à gauche. Le mode initial/par défaut est le mode Normal. Vous passerez généralement le plus de temps entre le mode Normal et le mode Insert.
 
 Vous pouvez changer de mode en appuyant sur `<ESC>` (la touche escape) pour passer de n'importe quel mode au mode Normal. En mode Normal, vous pouvez passer en mode Insert avec `i`, en mode Replace avec `R`, en mode Visual avec `v`, en mode Visual Line avec `V`, en mode Visual Block avec `<C-v>` (Ctrl-V, parfois aussi écrit `^V`), et en mode Command-Line avec `:`.
 
@@ -104,8 +104,6 @@ Vous devriez passer la plupart de votre temps en mode Normal, en utilisant les c
 - Recherche : `/{regex}`, `n` / `N ` pour naviguer entre les matchs
 
 ## Selection
-
-La sélection
 
 Modes Visual :
 
@@ -188,7 +186,7 @@ Vim est personnalisé via un fichier texte de configuration dans `~/.vimrc` (con
 Nous fournissons une configuration de base bien documentée que vous pouvez utiliser comme point de départ. Nous vous recommandons de l'utiliser parce qu'elle corrige certains comportements bizarres de Vim par défaut. **Téléchargez notre configuration [ici](/2020/files/vimrc) et sauvegardez-la dans `~/.vimrc`**.
 
 Vim est hautement personnalisable, et cela vaut la peine de passer du temps à explorer les options de personnalisation. Vous pouvez vous inspirer des dotfiles d'autres sur GitHub, par exemple, les configurations Vim de vos instructeurs ([Anish](https://github.com/anishathalye/dotfiles/blob/master/vimrc),
-[Jon](https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim) (utilises [neovim](https://neovim.io/)),
+[Jon](https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim) (utilise [neovim](https://neovim.io/)),
 [Jose](https://github.com/JJGO/dotfiles/blob/master/vim/.vimrc)). Il y a aussi beaucoup de bons articles de blog sur ce sujet. Essayez de ne pas copier-coller la configuration complète des gens, mais lisez-la, comprenez-la, et prenez ce dont vous avez besoin.
 
 # Extension de Vim
