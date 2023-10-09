@@ -323,7 +323,7 @@ Le serveur peut être spécifié par une URL (comme `bar.mit.edu`) ou une IP (qu
 
 Une fonctionnalité souvent négligée de `ssh` est la possibilité d'exécuter des commandes directement.
 `ssh foobar@server ls` exécutera `ls` dans le dossier home de foobar.
-Cela fonctionne aussi avec les pipes, donc `ssh foobar@server ls | grep PATTERN` va "greper" localement la sortie distante de `ls` et `ls | ssh foobar@server grep PATTERN` va "grep" à distance la sortie locale de `ls`.
+Cela fonctionne aussi avec les pipes, donc `ssh foobar@server ls | grep PATTERN` va "grep" localement la sortie distante de `ls` et `ls | ssh foobar@server grep PATTERN` va "grep" à distance la sortie locale de `ls`.
 
 
 ## Clés SSH

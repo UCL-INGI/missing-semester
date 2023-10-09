@@ -9,36 +9,24 @@ video:
 ---
 
 
-Les systèmes de contrôle de version (VCS) sont des outils utilisés pour suivre les modifications apportées au code source (ou à d'autres collections de fichiers et de dossiers).
-(ou d'autres collections de fichiers et de dossiers). Comme leur nom l'indique, ces outils
+Les systèmes de contrôle de version (VCS) sont des outils utilisés pour suivre les modifications apportées au code source (ou à d'autres collections de fichiers et de dossiers). Comme leur nom l'indique, ces outils
 permettent de conserver un historique des modifications ; ils facilitent en outre la collaboration. Les VCS suivent les modifications apportées à un dossier et à son contenu dans une série d'instantanés, où
-où chaque instantané encapsule l'état complet des fichiers/dossiers d'un répertoire de premier niveau.
-de premier niveau. Les VCS conservent également des métadonnées telles que la personne qui a créé chaque instantané, les messages associés à chaque instantané, etc.
-messages associés à chaque instantané, etc.
+où chaque instantané encapsule l'état complet des fichiers/dossiers d'un répertoire de premier niveau. Les VCS conservent également des métadonnées telles que la personne qui a créé chaque instantané, les messages associés à chaque instantané, etc.
 
-Pourquoi le contrôle de version est-il utile ? Même lorsque vous travaillez seul, il peut vous permettre de
-vous permettre de consulter d'anciens instantanés d'un projet, de garder une trace des raisons pour lesquelles certaines modifications ont été effectuées, de travailler sur des branches parallèles du développement, et bien plus encore.
-travailler sur des branches de développement parallèles, et bien plus encore. Lorsque vous travaillez
-avec d'autres, c'est un outil inestimable pour voir ce que d'autres personnes ont modifié,
-ainsi que pour résoudre les conflits dans le cadre d'un développement simultané.
+Pourquoi le contrôle de version est-il utile ? Même lorsque vous travaillez seul, il peut vous permettre de consulter d'anciens instantanés d'un projet, de garder une trace des raisons pour lesquelles certaines modifications ont été effectuées, de travailler sur des branches parallèles du développement, et bien plus encore.
+Lorsqu'on travaille avec d'autres personnes, c'est un outil inestimable pour voir ce que les autres ont changé, ainsi que pour résoudre les conflits dans le cadre d'un développement simultané.
 
-Les VCS modernes vous permettent également de répondre facilement (et souvent automatiquement) à des questions telles que
-comme :
+Les VCS modernes vous permettent également de répondre facilement (et souvent automatiquement) à des questions telles que :
 - Qui a écrit ce module ?
 - Quand cette ligne particulière de ce fichier particulier a-t-elle été éditée ? Par qui ? Pourquoi a-t-elle été éditée ?
-  Pourquoi a-t-elle été éditée ?
 - Au cours des 1000 dernières révisions, quand/pourquoi un test unitaire particulier a-t-il cessé de fonctionner ?
-de fonctionner ?
 
-While other VCSs exist, **Git** is the de facto standard for version control.
-This [XKCD comic](https://xkcd.com/1597/) captures Git's reputation:
 Bien qu'il existe d'autres systèmes de contrôle de version, Git est la norme de facto en matière de contrôle de version. Cette bande dessinée de  [XKCD comic](https://xkcd.com/1597/) illustre la réputation de Git :
 
 ![xkcd 1597](https://imgs.xkcd.com/comics/git.png)
 
 Parce que l'interface de Git est une grande abstraction, apprendre Git de haut en bas (en commençant par son interface / son interface en ligne de commande) peut conduire à beaucoup de confusion.
 Il est possible de mémoriser une poignée de commandes et de les considérer comme des incantations magiques, et de suivre l'approche de la bande dessinée ci-dessus chaque fois que quelque chose ne va pas.
-comme des incantations magiques, et de suivre l'approche de la bande dessinée ci-dessus dès que quelque chose ne va plus.
 
 Bien que l'interface de Git soit laide, sa conception et ses idées sous-jacentes sont belles. Alors qu'une interface laide doit être _mémorisée_, une belle conception peut être _comprise_. C'est pourquoi nous expliquons Git de manière ascendante, en commençant par son modèle de données et en couvrant ensuite l'interface en ligne de commande. Une fois le modèle de données compris, les commandes peuvent être mieux comprises en termes de manipulation du modèle de données sous-jacent.
 
@@ -76,7 +64,7 @@ o <-- o <-- o <-- o
              \
               --- o <-- o
 ```
-Dans l'image ASCII ci-dessus, les `o`s correspondent à des commits individuels (instantanés). Les flèches pointent vers le parent de chaque commit (il s'agit d'une relation "vient auparavant", et non "vient postérieurement"). Après le troisième commit, l'historique se divise en deux branches distinctes. Cela peut correspondre, par exemple, à deux fonctionnalités distinctes développées en parallèle, indépendamment l'une de l'autre. À l'avenir, ces branches peuvent être fusionnées pour créer un nouvel instantané qui intègre les deux fonctionnalités, produisant un nouvel historique qui ressemble à ceci, avec le nouveau commit de fusion en gras :
+Dans l'image ASCII ci-dessus, les `o` correspondent à des commits individuels (instantanés). Les flèches pointent vers le parent de chaque commit (il s'agit d'une relation "vient auparavant", et non "vient postérieurement"). Après le troisième commit, l'historique se divise en deux branches distinctes. Cela peut correspondre, par exemple, à deux fonctionnalités distinctes développées en parallèle, indépendamment l'une de l'autre. À l'avenir, ces branches peuvent être fusionnées pour créer un nouvel instantané qui intègre les deux fonctionnalités, produisant un nouvel historique qui ressemble à ceci, avec le nouveau commit de fusion en gras :
 
 <pre class="highlight">
 <code>
@@ -111,7 +99,7 @@ Il s'agit d'un modèle d'histoire simple et clair.
 
 ## Objets et adressage du contenu
 
-Un "objet" est un blob, un arbre ou un engagement :
+Un "objet" est un blob, un arbre ou un commit :
 
 ```
 type object = blob | tree | commit
@@ -152,7 +140,7 @@ git est merveilleux
 
 Désormais, tous les instantanés peuvent être identifiés par leur hachage SHA-1. Cela n'est pas pratique, car les humains ne sont pas doués pour se souvenir de chaînes de 40 caractères hexadécimaux.
 
-La solution de Git à ce problème est d'utiliser des noms lisibles par l'homme pour les hashs SHA-1, appelés "références". Les références sont des pointeurs vers les commits. Contrairement aux objets, qui sont immuables, les références sont mutables (elles peuvent être mises à jour pour pointer vers un nouveau commit). Par exemple, la référence `master` pointe généralement vers le dernier commit de la branche principale de développement.
+La solution de Git à ce problème est d'utiliser des noms lisibles par l'homme pour les hashs SHA-1, appelés "références". Les références sont des pointeurs vers les commits. Contrairement aux objets, qui sont immutables, les références sont mutables (elles peuvent être mises à jour pour pointer vers un nouveau commit). Par exemple, la référence `master` pointe généralement vers le dernier commit de la branche principale de développement.
 
 ```
 references = map<string, string>
@@ -415,8 +403,7 @@ command is used for merging.
 
 # Divers  
 
-- **GUIs**: il existe de nombreux [clients GUI ](https://git-scm.com/downloads/guis)
-pour git. Personnellement, nous ne les utilisons pas et utilisons plutôt l'interface en ligne de commande.
+- **GUIs**: il existe de nombreux [clients GUI ](https://git-scm.com/downloads/guis) pour git. Personnellement, nous ne les utilisons pas et utilisons plutôt l'interface en ligne de commande.
 - **Intégration au shell**: il est très pratique d'avoir un statut Git dans le prompt du shell  ([zsh](https://github.com/olivierverdier/zsh-git-prompt),
 [bash](https://github.com/magicmonty/bash-git-prompt)). Souvent inclus dans des frameworks comme Oh My Zsh. [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh).
 - **Intégration de l'éditeur**: de la même manière que ci-dessus, des intégrations pratiques avec de nombreuses fonctionnalités. [fugitive.vim](https://github.com/tpope/vim-fugitive) est l'intégration standard pour Vim.
@@ -440,7 +427,7 @@ explication détaillée de l'implémentation de Git au-delà du modèle de donn�
 
 # Exercices
 
-1. Si vous n'avez pas d'expérience avec Git, essayez de lire les deux premiers chapitres de  [Pro Git](https://git-scm.com/book/en/v2)ou suivez un tutoriel tel que [Learn Git Branching](https://learngitbranching.js.org/). Pendant que vous travaillez, faites le lien entre les commandes Git et le modèle de données.
+1. Si vous n'avez pas d'expérience avec Git, essayez de lire les deux premiers chapitres de  [Pro Git](https://git-scm.com/book/en/v2) ou suivez un tutoriel tel que [Learn Git Branching](https://learngitbranching.js.org/). Pendant que vous travaillez, faites le lien entre les commandes Git et le modèle de données.
 1. Clonez le dépôt du [site web de la classe](https://github.com/missing-semester/missing-semester).
     1. Explorer l'historique des versions en le visualisant sous la forme d'un graphique.
     1. Qui a été la dernière personne à modifier `README.md`? (Indice: utiliser `git log` avec un argument).
@@ -450,7 +437,7 @@ explication détaillée de l'implémentation de Git au-delà du modèle de donn�
 1. Une erreur fréquente lors de l'apprentissage de Git est de livrer des fichiers volumineux qui ne devraient pas être gérés par Git ou d'ajouter des informations sensibles. Essayez d'ajouter un fichier à un dépôt, d'effectuer quelques livraisons, puis de supprimer ce fichier de l'historique (vous pouvez consulter cette [rubrique](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)).
 1. Cloner un dépôt depuis GitHub, et modifier un de ses fichiers existants. Que se passe-t-il lorsque vous faites `git stash`? Que voyez-vous lorsque vous exécutez `git log --all --oneline`? Exécutez `git stash pop` pour annuler ce que vous avez fait avec `git stash`.
   Dans quel scénario cela peut-il être utile ?
-1. Comme beaucoup d'outils en ligne de commande, Git fournit un fichier de configuration (ou fichier point) appelé  `~/.gitconfig`. Créez un alias dans `~/.gitconfig` pour que lorsque vous lancez `git graph`, vous obteniez la sortie de  `git log --all --graph --decorate --oneline`.Des informations sur les alias git peuvent être trouvées [ici](https://git-scm.com/docs/git-config#Documentation/git-config.txt-alias).
+1. Comme beaucoup d'outils en ligne de commande, Git fournit un fichier de configuration (ou fichier point) appelé  `~/.gitconfig`. Créez un alias dans `~/.gitconfig` pour que lorsque vous lancez `git graph`, vous obteniez la sortie de  `git log --all --graph --decorate --oneline`. Des informations sur les alias git peuvent être trouvées [ici](https://git-scm.com/docs/git-config#Documentation/git-config.txt-alias).
 1. Vous pouvez définir des motifs d'ignorance globaux dans `~/.gitignore_global`  après avoir exécuté
    `git config --global core.excludesfile ~/.gitignore_global`. Faites cela, et configurez votre fichier gitignore global pour ignorer les fichiers temporaires spécifiques à un système d'exploitation ou à un éditeur, comme `.DS_Store`.
 1. Faisez un Fork sur le [répertoire du site web de la classe](https://github.com/missing-semester missing-semester), trouvez une coquille ou une autre amélioration que vous pouvez apporter, et soumettez une demande de modification (pull request) sur GitHub (vous voulez peut-être jeter un oeil [ici](https://github.com/firstcontributions/first-contributions)).
