@@ -36,3 +36,6 @@ exclude:
   - _2020/editors.md
   - _2020/debugging-profiling.md
   - _2020/data-wrangling.md
+  - _2020/qa.md
+  - _2020/command-line.md
+  - _2020/shell-tools.md
