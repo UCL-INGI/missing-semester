@@ -1,8 +1,8 @@
 # Setup
 title: "Le Cours d'Informatique Manquant"
 #url: https://missing.csail.mit.edu
-url: https://ucl-ingi.github.io/
-baseurl: "/missing-semester/"
+url: https://ucl-ingi.github.io
+baseurl: /missing-semester
 
 # Settings
 markdown: kramdown
