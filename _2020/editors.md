@@ -47,7 +47,7 @@ La conception de Vim repose sur l'idée qu'une grande partie du temps des progra
 - **Visual** (simple, ligne ou bloc) : pour sélectionner des blocs de texte
 - **Command-line** : pour exécuter une commande
 
-Les touches ont des significations différentes selon les modes de fonctionnement. Par exemple, la lettre `x` en mode Insert insère simplement le caractère littéral "x", mais en mode Normal, elle supprime le caractère sous le curseur, et en mode Visuel, elle supprime la sélection.
+Les touches ont des significations différentes selon les modes de fonctionnement. Par exemple, la lettre `x` en mode Insert insère simplement le caractère littéral "x", mais en mode Normal, elle supprime le caractère sous le curseur, et en mode Visual, elle supprime la sélection.
 
 Dans sa configuration par défaut, Vim affiche le mode actuel en bas à gauche. Le mode initial/par défaut est le mode Normal. Vous passerez généralement le plus clair de votre temps entre le mode Normal et le mode Insert.
 
@@ -60,7 +60,7 @@ Vous utiliserez souvent la touche `<ESC>` lorsque vous utiliserez Vim : envisage
 
 ## Insérer du texte
 
-En mode Normal, appuyez sur `i` pour passer en mode Insert. Vim se comporte alors comme n'importe quel autre éditeur de texte, jusqu'à ce que vous appuyiez sur `<ESC>` pour revenir au mode Normal. Ceci, ainsi que les bases expliquées ci-dessus, sont tout ce dont vous avez besoin pour commencer à éditer des fichiers en utilisant Vim (bien que ce ne soit pas particulièrement efficace, si vous passez tout votre temps à éditer à partir du mode Insert).
+En mode Normal, appuyez sur `i` pour passer en mode Insert. Vim se comporte alors comme n'importe quel autre éditeur de texte, jusqu'à ce que vous appuyiez sur `<ESC>` pour revenir au mode Normal. Ceci, ainsi que les bases expliquées ci-dessus, sont tout ce dont vous avez besoin pour commencer à éditer des fichiers en utilisant Vim (bien que ce ne soit pas particulièrement efficace si vous passez tout votre temps à éditer à partir du mode Insert).
 
 ## Buffers, onglets et fenêtres
 

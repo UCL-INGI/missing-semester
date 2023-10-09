@@ -247,7 +247,7 @@ ffmpeg -loglevel panic -i /dev/video0 -frames 1 -f image2 -
 
 # Exercices
 
-1. Suivez ce [court tutoriel interactif sur les expressions rationnelles](https://regexone.com/).
+1. Suivez ce [court tutoriel interactif sur les expressions régulières](https://regexone.com/).
 
 2. Trouvez le nombre de mots (dans `/usr/share/dict/words`) qui contiennent au moins trois `a` et qui n'ont pas de `'s` à la fin. Quelles sont les trois dernières lettres les plus courantes de ces mots ? La commande `y` de `sed`, ou le programme `tr`, peuvent vous aider à respecter la casse. Combien y a-t-il de ces combinaisons de deux lettres ? Et pour le défi : quelles sont les combinaisons qui n'apparaissent pas ?
 
