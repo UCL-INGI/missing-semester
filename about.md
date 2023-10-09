@@ -23,7 +23,7 @@ Comment automatiser les tâches courantes et répétitives avec des alias, des s
 Par exemple, une recherche rapide dans votre historique peut vous faire gagner énormément de temps. Dans l'exemple ci-dessous, nous montrons plusieurs astuces liées à la navigation dans l'historique de votre shell pour les commandes de conversion `convert`.
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/history.mp4" type="video/mp4">
+  <source src="{{site.baseurl}}/static/media/demos/history.mp4" type="video/mp4">
 </video>
 
 ## Contrôle des versions
@@ -32,7 +32,7 @@ Comment utiliser _correctement_ le contrôle de version et en tirer parti pour �
 
 Dans l'exemple ci-dessous, nous utilisons `git bisect` pour trouver quel commit a fait échouer un test unitaire, puis nous le corrigeons avec `git revert`.
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/git.mp4" type="video/mp4">
+  <source src="{{site.baseurl}}/static/media/demos/git.mp4" type="video/mp4">
 </video>
 
 ## Édition de texte
@@ -41,7 +41,7 @@ Comment éditer efficacement des fichiers à partir de la ligne de commande, à 
 
 Les macros de Vim sont l'une de ses meilleures fonctionnalités. Dans l'exemple ci-dessous, nous convertissons rapidement un tableau html au format csv à l'aide d'une macro imbriquée de Vim.
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/vim.mp4" type="video/mp4">
+  <source src="{{site.baseurl}}/static/media/demos/vim.mp4" type="video/mp4">
 </video>
 
 ## Machines distantes
@@ -51,7 +51,7 @@ Comment rester sain d'esprit lorsque l'on travaille avec des machines distantes 
 Dans l'exemple ci-dessous, nous utilisons `tmux` pour maintenir les sessions actives sur les serveurs distants et `mosh` pour prendre en charge l'itinérance et la déconnexion du réseau.
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/ssh.mp4" type="video/mp4">
+  <source src="{{site.baseurl}}/static/media/demos/ssh.mp4" type="video/mp4">
 </video>
 
 
@@ -62,7 +62,7 @@ Comment trouver rapidement les fichiers que vous recherchez. Plus besoin de cliq
 Dans l'exemple ci-dessous, nous recherchons rapidement des fichiers avec `fd` et des extraits de code avec `rg`. Nous avons aussi rapidement `cd` et `vim` les fichiers/dossiers récents/fréquents en utilisant `fasd`.
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/find.mp4" type="video/mp4">
+  <source src="{{site.baseurl}}/static/media/demos/find.mp4" type="video/mp4">
 </video>
 
 
@@ -82,8 +82,7 @@ Comment être sur Internet sans révéler immédiatement tous ses secrets au mon
 
 ## Conclusion
 
-Tout cela, et bien d'autres choses encore, sera abordé lors des 12 cours magistraux, chacun comprenant un exercice qui vous permettra de vous familiariser avec les outils par vous-même. Si vous ne pouvez pas attendre le mois de janvier, vous pouvez également jeter un coup d'œil aux cours de [Hacker
-Tools](https://hacker-tools.github.io/lectures/), que nous avons organisés pendant l'IAP l'année dernière. C'est le précurseur de ce cours, et il couvre la plupart des mêmes sujets.
+Tout cela, et bien d'autres choses encore, sera abordé lors des 12 cours magistraux, chacun comprenant un exercice qui vous permettra de vous familiariser avec les outils par vous-même. Si vous ne pouvez pas attendre le mois de janvier, vous pouvez également jeter un coup d'œil aux cours de [Hacker Tools](https://hacker-tools.github.io/lectures/), que nous avons organisés pendant l'IAP l'année dernière. C'est le précurseur de ce cours, et il couvre la plupart des mêmes sujets.
 
 Nous espérons vous voir en janvier, que ce soit virtuellement ou en personne !
 

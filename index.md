@@ -8,7 +8,7 @@ Les cours vous enseignent tous les sujets avancés de la science informatique, d
 
 Les étudiants passent des centaines d'heures à utiliser ces outils au cours de leurs études (et des milliers au cours de leur carrière), il est donc logique de rendre l'expérience aussi fluide que possible. La maîtrise de ces outils vous permet non seulement de passer moins de temps à comprendre comment plier vos outils à votre volonté, mais elle vous permet également de résoudre des problèmes qui vous semblaient auparavant impossibles.
 
-Découvrez [pourquoi nous enseignons ce cours](/about/).
+Découvrez [pourquoi nous enseignons ce cours]({{site.baseurl}}/about/).
 
 {% comment %}
 # Inscription
@@ -30,7 +30,7 @@ Sign up for the IAP 2020 class by filling out this [registration form](https://f
         <li>
         <strong>{{ lecture.date | date: '%d/%m/%y' }}</strong>:
         {% if lecture.ready %}
-            <a href="{{ lecture.url }}">{{ lecture.title }}</a>
+            <a href="{{site.baseurl}}/{{ lecture.url }}">{{ lecture.title }}</a>
         {% else %}
             {{ lecture.title }} {% if lecture.noclass %}[no class]{% endif %}
         {% endif %}
@@ -39,8 +39,7 @@ Sign up for the IAP 2020 class by filling out this [registration form](https://f
 {% endfor %}
 </ul>
 
-Les enregistrements vidéo des cours sont disponibles [sur
-YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J).
+Les enregistrements vidéo des cours sont disponibles [sur YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J).
 
 # A propos du cours
 
