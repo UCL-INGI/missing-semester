@@ -101,5 +101,5 @@ AeroAstro](https://aeroastro.mit.edu/) pour l'équipement audiovisuel, et Brandi
 <div class="small center">
 <p><a href="https://github.com/missing-semester/missing-semester">Code source</a>.</p>
 <p>Sous licence CC BY-NC-SA.</p>
-<p>Voir <a href="/license/">ici</a> pour les directives de contribution &amp; de traduction.</p>
+<p>Voir <a href="{{site.baseurl}}/license/">ici</a> pour les directives de contribution &amp; de traduction.</p>
 </div>

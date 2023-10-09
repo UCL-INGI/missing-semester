@@ -18,7 +18,7 @@ Nous voulons vous apprendre à tirer le meilleur parti des outils que vous conna
 
 # Structure du cours
 
-Le cours se compose de 11 conférences d'une heure, chacune centrée sur un [sujet particulier](/2020/). Les conférences sont largement indépendantes, bien qu'au fur et à mesure que le semestre avance, nous supposerons que vous êtes familier avec le contenu des conférences précédentes. Nous avons des notes de cours en ligne, mais il y aura beaucoup de contenu couvert en classe (par exemple sous la forme de démonstrations live) qui ne figure pas dans les notes. Nous enregistrerons les cours et mettrons les enregistrements en ligne.
+Le cours se compose de 11 conférences d'une heure, chacune centrée sur un [sujet particulier]({{site.baseurl}}/2020/). Les conférences sont largement indépendantes, bien qu'au fur et à mesure que le semestre avance, nous supposerons que vous êtes familier avec le contenu des conférences précédentes. Nous avons des notes de cours en ligne, mais il y aura beaucoup de contenu couvert en classe (par exemple sous la forme de démonstrations live) qui ne figure pas dans les notes. Nous enregistrerons les cours et mettrons les enregistrements en ligne.
 
 Nous essayons de couvrir un large éventail de sujets en seulement 11 cours d'une heure, c'est pourquoi les cours sont assez denses. Pour vous permettre de vous familiariser avec le contenu à votre propre rythme, chaque conférence comprend une série d'exercices qui vous guident à travers les points clés de la conférence. Après chaque cours, nous organisons des heures de bureau où nous serons présents pour répondre à vos questions. Si vous suivez le cours en ligne, vous pouvez nous envoyer vos questions à l'adresse [missing-semester@mit.edu](mailto:missing-semester@mit.edu).
 
