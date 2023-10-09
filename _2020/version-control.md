@@ -13,13 +13,13 @@ Les systèmes de contrôle de version (VCS) sont des outils utilisés pour suivr
 permettent de conserver un historique des modifications ; ils facilitent en outre la collaboration. Les VCS suivent les modifications apportées à un dossier et à son contenu dans une série d'instantanés, où
 où chaque instantané encapsule l'état complet des fichiers/dossiers d'un répertoire de premier niveau. Les VCS conservent également des métadonnées telles que la personne qui a créé chaque instantané, les messages associés à chaque instantané, etc.
 
-Pourquoi le contrôle de version est-il utile ? Même lorsque vous travaillez seul, il peut vous permettre de consulter d'anciens instantanés d'un projet, de garder une trace des raisons pour lesquelles certaines modifications ont été effectuées, de travailler sur des branches parallèles du développement, et bien plus encore.
-Lorsqu'on travaille avec d'autres personnes, c'est un outil inestimable pour voir ce que les autres ont changé, ainsi que pour résoudre les conflits dans le cadre d'un développement simultané.
+Pourquoi le contrôle de version est-il utile ? Même lorsque vous travaillez seul, il peut vous permettre de consulter d'anciennes snapshots d'un projet, de garder une trace des raisons pour lesquelles certaines modifications ont été effectuées, de travailler sur des branches parallèles du développement, et bien plus encore. Lorsque vous travaillez à plusieurs, c'est un outil inestimable pour voir ce que d'autres personnes ont modifié, ainsi que pour résoudre les conflits dans le cadre d'un développement simultané.
 
 Les VCS modernes vous permettent également de répondre facilement (et souvent automatiquement) à des questions telles que :
 - Qui a écrit ce module ?
 - Quand cette ligne particulière de ce fichier particulier a-t-elle été éditée ? Par qui ? Pourquoi a-t-elle été éditée ?
-- Au cours des 1000 dernières révisions, quand/pourquoi un test unitaire particulier a-t-il cessé de fonctionner ?
+- Au cours des 1000 dernières révisions, quand/pourquoi un test unitaire particulier a-t-il échoué ?
+
 
 Bien qu'il existe d'autres systèmes de contrôle de version, Git est la norme de facto en matière de contrôle de version. Cette bande dessinée de  [XKCD comic](https://xkcd.com/1597/) illustre la réputation de Git :
 
@@ -28,35 +28,35 @@ Bien qu'il existe d'autres systèmes de contrôle de version, Git est la norme d
 Parce que l'interface de Git est une grande abstraction, apprendre Git de haut en bas (en commençant par son interface / son interface en ligne de commande) peut conduire à beaucoup de confusion.
 Il est possible de mémoriser une poignée de commandes et de les considérer comme des incantations magiques, et de suivre l'approche de la bande dessinée ci-dessus chaque fois que quelque chose ne va pas.
 
-Bien que l'interface de Git soit laide, sa conception et ses idées sous-jacentes sont belles. Alors qu'une interface laide doit être _mémorisée_, une belle conception peut être _comprise_. C'est pourquoi nous expliquons Git de manière ascendante, en commençant par son modèle de données et en couvrant ensuite l'interface en ligne de commande. Une fois le modèle de données compris, les commandes peuvent être mieux comprises en termes de manipulation du modèle de données sous-jacent.
+Bien que l'interface de Git soit laide, sa conception et ses idées sous-jacentes sont belles. Alors qu'une interface laide doit être _mémorisée_, une belle conception peut être _comprise_. C'est pourquoi nous expliquons Git de manière ascendante, en commençant par son modèle et en couvrant ensuite l'interface en ligne de commande. Une fois le modèle compris, les commandes peuvent être mieux comprises en termes de manipulation du modèle sous-jacent.
 
-# Modèle de données de Git
+# Modèle de Git
 
-Il existe de nombreuses approches ad hoc pour le contrôle des versions. Git a un modèle modèle bien pensé qui permet de bénéficier de toutes les fonctionnalités intéressantes du contrôle de version, comme la conservation de l'historique, la prise en charge des branches et la collaboration, comme la conservation de l'historique, la prise en charge des branches et la collaboration.
+Il existe de nombreuses approches ad hoc pour le contrôle des versions. Git a un modèle modèle bien pensé qui permet de bénéficier de toutes les fonctionnalités intéressantes du contrôle de version, comme la conservation de l'historique, la prise en charge des branches et la collaboration.
 
-## Instantanés
+## Snapshots
 
-Git modélise l'historique d'une collection de fichiers et de dossiers au sein d'un répertoire de premier niveau comme une série d'instantanés. Dans la terminologie de Git, un fichier est appelé "blob", et c'est juste un tas d'octets. Un répertoire est appelé "arbre", et il associe des noms à des blobs ou à des arbres (les répertoires peuvent donc contenir d'autres répertoires). Un instantané est l'arbre de premier niveau qui est traqué. Par exemple, nous pourrions avoir une arborescence comme suit :
+Git modélise l'historique d'une collection de fichiers et de dossiers au sein d'un répertoire de top niveau comme une série de snapshots. Dans la terminologie de Git, un fichier est appelé "blob", et il est vu comme un tas d'octets. Un répertoire est appelé "tree", et il associe des noms à des blobs ou à des trees (les répertoires peuvent donc contenir d'autres répertoires). Une snapshot est le tree de top niveau qui est suivi. Par exemple, nous pourrions avoir une arborescence comme suit :
 
 ```
 <root> (tree)
 |
 +- foo (tree)
 |  |
-|  + bar.txt (blob, contents = "hello world")
+|  + bar.txt (blob, contenu = "hello world")
 |
-+- baz.txt (blob, contents = "git est un outil formidable")
++- baz.txt (blob, contenu = "git est un outil formidable")
 ```
 
-L'arbre de premier niveau contient deux éléments, un arbre "foo" (qui contient lui-même un élément, un blob "bar.txt"), et un blob "baz.txt".
+L'arbre de top niveau contient deux éléments, un tree "foo" (qui contient lui-même un élément, un blob "bar.txt"), et un blob "baz.txt".
 
-## Modélisation de l'histoire : des instantanés 
+## Modélisation de l'historique : liaisons des snapshots 
 
-Comment un système de contrôle des versions doit-il relier les instantanés ? Un modèle simple consisterait à avoir un historique linéaire. Un historique serait une liste d'instantanés classés dans le temps. Pour de nombreuses raisons, Git n'utilise pas un modèle aussi simple.
+Comment un système de contrôle des versions doit-il relier les snapshots ? Un modèle simple consisterait à avoir un historique linéaire. Un historique serait une liste de snapshots classés dans le temps. Pour de nombreuses raisons, Git n'utilise pas un modèle aussi simple.
 
-Dans Git, un historique est un graphe acyclique dirigé (DAG) d'instantanés. Cela peut sembler être un mot mathématique compliqué, mais ne vous laissez pas intimider. Tout ce que cela signifie, c'est que chaque instantané dans Git fait référence à un ensemble de "parents", les instantanés qui l'ont précédé. Il s'agit d'un ensemble de parents plutôt que d'un seul parent (comme ce serait le cas dans un historique linéaire) car un instantané peut descendre de plusieurs parents, par exemple, en raison de la combinaison (fusion) de deux branches parallèles de développement.
+Dans Git, un historique est un graphe acyclique dirigé (DAG) de snapshots. Cela peut sembler être un mot mathématique compliqué, mais ne vous laissez pas intimider. Tout ce que cela signifie, c'est que chaque instantané dans Git fait référence à un ensemble de "parents", les snapshots qui l'ont précédé. Il s'agit d'un ensemble de parents plutôt que d'un seul parent (comme ce serait le cas dans un historique linéaire) car une snapshot peut descendre de plusieurs parents, par exemple, en raison de la combinaison (merge) de deux branches parallèles de développement.
 
-Git appelle ces instantanés des "commit". La visualisation de l'historique des livraisons peut ressembler à quelque chose comme ceci :
+Git appelle ces snapshots des "commit". La visualisation de l'historique des commits peut ressembler à quelque chose comme ceci :
 
 ```
 o <-- o <-- o <-- o
@@ -86,7 +86,7 @@ type blob = array<byte>
 // un répertoire contient des fichiers et des répertoires nommés
 type tree = map<string, tree | blob>
 
-// un commit a des parents, des métadonnées et l'arbre de premier niveau  
+// un commit a des parents, des métadonnées et l'arbre de top niveau  
 type commit = struct {
     parents: array<commit>
     author: string
@@ -95,7 +95,7 @@ type commit = struct {
 }
 ```
 
-Il s'agit d'un modèle d'histoire simple et clair.
+Il s'agit d'un modèle d'historique simple et clair.
 
 ## Objets et adressage du contenu
 
@@ -105,7 +105,7 @@ Un "objet" est un blob, un arbre ou un commit :
 type object = blob | tree | commit
 ```
 
-Dans le stockage de données de Git, tous les objets sont adressés en fonction de leur contenu par leur [SHA-1 hash](https://en.wikipedia.org/wiki/SHA-1).
+Dans le stockage de données de Git, tous les objets sont adressés en fonction de leur contenu par leur [hash SHA-1](https://en.wikipedia.org/wiki/SHA-1).
 
 ```
 objects = map<string, object>
@@ -118,27 +118,24 @@ def load(id):
     return objects[id]
 ```
 
-Les blobs, les arbres et les commits sont unifiés de cette manière : ce sont tous des objets. Lorsqu'ils font référence à d'autres objets, ils ne les contiennent pas réellement dans leur représentation sur disque, mais y font référence par leur hachage.
+Les blobs, les trees et les commits sont unifiés de cette manière : ce sont tous des objets. Lorsqu'ils font référence à d'autres objets, ils ne les contiennent pas réellement dans leur représentation sur disque, mais y font référence par leur hachage.
 
-Par exemple, l'arbre de l'exemple de structure de répertoire ci-dessus (visualisé à l'aide de la fonction `git cat-file -p 698281bc680d1995c5f4caaf3359721a5a58d48d`),
-
-
-Ressemble à :
+Par exemple, l'arbre de l'exemple de structure de répertoire ci-dessus (visualisé à l'aide de la fonction `git cat-file -p 698281bc680d1995c5f4caaf3359721a5a58d48d`), ressemble à :
 
 ```
 100644 blob 4448adbf7ecd394f42ae135bbeed9676e894af85    baz.txt
 040000 tree c68d233a33c5c06e0340e4c224f0afca87c8ce87    foo
 ```
 
-L'arbre lui-même contient des pointeurs vers son contenu, baz.txt (un blob) et foo (un arbre). Si nous regardons le contenu adressé par le hash correspondant à baz.txt avec `git cat-file -p 4448adbf7ecd394f42ae135bbeed9676e894af85`, nous obtenons ce qui suit :
+Le tree lui-même contient des pointeurs vers son contenu, baz.txt (un blob) et foo (un tree). Si nous regardons le contenu adressé par le hash correspondant à baz.txt avec `git cat-file -p 4448adbf7ecd394f42ae135bbeed9676e894af85`, nous obtenons ce qui suit :
 
 ```
-git est merveilleux
+git is wonderful
 ```
 
 ## Références
 
-Désormais, tous les instantanés peuvent être identifiés par leur hachage SHA-1. Cela n'est pas pratique, car les humains ne sont pas doués pour se souvenir de chaînes de 40 caractères hexadécimaux.
+Désormais, toutes les snapshots peuvent être identifiées par leur hachage SHA-1. Cela n'est pas pratique, car les humains ne sont pas doués pour se souvenir de chaînes de 40 caractères hexadécimaux.
 
 La solution de Git à ce problème est d'utiliser des noms lisibles par l'homme pour les hashs SHA-1, appelés "références". Les références sont des pointeurs vers les commits. Contrairement aux objets, qui sont immutables, les références sont mutables (elles peuvent être mises à jour pour pointer vers un nouveau commit). Par exemple, la référence `master` pointe généralement vers le dernier commit de la branche principale de développement.
 
@@ -158,30 +155,29 @@ def load_reference(name_or_id):
         return load(name_or_id)
 ```
 
-Grâce à cela, Git peut utiliser des noms lisibles par l'homme comme `master` pour se référer à un instantané particulier dans l'historique, au lieu d'une longue chaîne hexadécimale.
+Grâce à cela, Git peut utiliser des noms lisibles par l'homme comme `master` pour se référer à une snapshot particulière dans l'historique, au lieu d'une longue chaîne hexadécimale.
 
-Un détail est que nous voulons souvent avoir une notion de "l'endroit où nous sommes actuellement" dans l'historique, de sorte que lorsque nous prenons un nouvel instantané, nous savons à quoi il est relatif (comment nous définissons le champ `parents` du commit). Dans Git, cet "endroit où nous sommes actuellement" est une référence spéciale appelée "HEAD".
+Un détail est que nous voulons souvent avoir une notion de "l'endroit où nous sommes actuellement" dans l'historique, de sorte que lorsque nous prenons une nouvelle snapshot, nous savons à quoi elle est relative (comment nous définissons le champ `parents` du commit). Dans Git, cet "endroit où nous sommes actuellement" est une référence spéciale appelée "HEAD".
 
 ## Repositories
 
-Enfin, nous pouvons définir ce qu'est (en gros) un dépôt Git : il s'agit des `objets` de données et des `références`.
+Enfin, nous pouvons définir ce qu'est (en gros) un dépôt Git : il s'agit des `objets` et des `références`.
 
 Sur le disque, tout ce que Git stocke, ce sont des objets et des références : c'est tout ce qu'il y a dans le modèle de données de Git. Toutes les commandes `Git` se traduisent par une manipulation du DAG de commit par l'ajout d'objets et l'ajout/mise à jour de références.
 
-Chaque fois que vous tapez une commande, pensez à la manipulation qu'elle effectue sur la structure de données graphique sous-jacente. Inversement, si vous essayez d'apporter un type particulier de changement au DAG des livraisons, par exemple "écarter les changements non livrés et faire pointer le ref 'master' sur la livraison `5d83f9e`", il y a probablement une commande pour le faire (par exemple, dans ce cas, `git checkout master; git reset
---hard 5d83f9e`).
+Chaque fois que vous tapez une commande, pensez à la manipulation qu'elle effectue sur la structure de données graphique sous-jacente. Inversement, si vous essayez d'apporter un type particulier de changement au DAG des livraisons, par exemple "supprimer les changements non commit et faire pointer la ref 'master' sur le commit `5d83f9e`", il y a probablement une commande pour le faire (par exemple, dans ce cas, `git checkout master; git reset --hard 5d83f9e`).
 
 # Zone d'attente
 
 Il s'agit d'un autre concept orthogonal au modèle de données, mais qui fait partie de l'interface de création de commits.
 
-L'une des façons d'implémenter l'instantané tel que décrit ci-dessus est d'avoir une commande "create snapshot" qui crée un nouvel instantané basé sur l'_état_ _actuel_ du répertoire de travail. Certains outils de contrôle de version fonctionnent ainsi, mais pas Git. Nous voulons des instantanés propres, et il n'est pas toujours idéal de faire un instantané à partir de l'état actuel. Par exemple, imaginez un scénario dans lequel vous avez implémenté deux fonctionnalités distinctes, et vous voulez créer deux commits distincts, où le premier introduit la première fonctionnalité, et le suivant introduit la seconde fonctionnalité. Ou imaginez un scénario dans lequel vous avez ajouté des instructions de débogage (print statements) partout dans votre code, ainsi qu'une correction de bugs ; vous voulez valider la correction de bugs tout en supprimant toutes les instructions de débogage (print statements).
+L'une des façons d'implémenter la snapshot telle que décrite ci-dessus est d'avoir une commande "create snapshot" qui crée une nouvelle snapshot basée sur l'_état_ _actuel_ du répertoire de travail. Certains outils de contrôle de version fonctionnent ainsi, mais pas Git. Nous voulons des snapshots propres, et il n'est pas toujours idéal de faire une snapshot à partir de l'état actuel. Par exemple, imaginez un scénario dans lequel vous avez implémenté deux fonctionnalités distinctes, et vous voulez créer deux commits distincts, où le premier introduit la première fonctionnalité, et le suivant introduit la seconde fonctionnalité. Ou imaginez un scénario dans lequel vous avez ajouté des instructions de débogage (print) partout dans votre code, ainsi qu'une correction de bugs ; vous voulez valider la correction de bugs tout en supprimant toutes les instructions de débogage.
 
-Git s'adapte à ces scénarios en vous permettant de spécifier quelles modifications doivent être incluses dans le prochain instantané grâce à un mécanisme appelé "staging area" (zone d'attente).
+Git s'adapte à ces scénarios en vous permettant de spécifier quelles modifications doivent être incluses dans la prochaine snapshot grâce à un mécanisme appelé "staging area" (zone d'attente).
 
 # Interface de ligne de commande Git
 
-Pour éviter de dupliquer les informations, nous n'allons pas expliquer les commandes ci-dessous en détail. Consultez le très recommandé [Pro Git](https://git-scm.com/book/en/v2) pour plus d'informations, ou regardez la vidéo de présentation.
+Pour éviter de dupliquer des informations, nous n'allons pas expliquer les commandes ci-dessous en détail. Consultez le très recommandé [Pro Git](https://git-scm.com/book/en/v2) pour plus d'informations, ou regardez la vidéo de présentation.
 
 ## Bases
 
@@ -338,20 +334,20 @@ index 94bab17..f0013b2 100644
 
 {% endcomment %}
 
-- `git help <command>`: obtient de l'aide pour une commande git
-- `git init`: crée un nouveau repo git, dont les données sont stockées dans le répertoire `.git`.
+- `git help <command>`: obtenir de l'aide pour une commande git
+- `git init`: créer un nouveau repo git, dont les données sont stockées dans le répertoire `.git`.
 - `git status`: vous indique ce qui se passe
-- `git add <filename>`: ajoute des fichiers à la zone d'attente
-- `git commit`: crée un nouveau commit
+- `git add <filename>`: ajouter des fichiers à la zone d'attente
+- `git commit`: créer un nouveau commit
     - Écrivez [de bons commentaires qui ont du sens](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)!
     - Encore plus de raisons d'écrire [de bons commentaires qui ont du sens](https://chris.beams.io/posts/git-commit/)!
-- `git log`: montre un historique aplati des logs
-- `git log --all --graph --decorate`: visualise l'histoire sous la forme d'un DAG
-- `git diff <filename>`: montre les changements que vous avez effectués par rapport à la zone de transit
-- `git diff <revision> <filename>`: montre les différences dans un fichier entre les instantanés
+- `git log`: montre un historique des logs
+- `git log --all --graph --decorate`: visualise l'historique sous la forme d'un DAG
+- `git diff <filename>`: montre les changements que vous avez effectués par rapport à la zone d'attente
+- `git diff <revision> <filename>`: montre les différences dans un fichier entre des snapshots
 - `git checkout <revision>`: met à jour HEAD et la branche actuelle
 
-## Branchement et fusion
+## Branchement et merge
 
 {% comment %}
 
@@ -371,7 +367,7 @@ command is used for merging.
 - `git checkout -b <name>`: crée une branche et y accède
     - identique que `git branch <name>; git checkout <name>`
 - `git merge <revision>`: fusionne dans la branche courante
-- `git mergetool`: utilise un outil sophistiqué pour aider à résoudre les conflits de fusion
+- `git mergetool`: utilise un outil sophistiqué pour aider à résoudre les conflits de merge
 - `git rebase`: rebase un ensemble de patches sur une nouvelle base
 
 ## Remotes
@@ -382,7 +378,7 @@ command is used for merging.
 - `git branch --set-upstream-to=<remote>/<remote branch>`: établit une correspondance entre la branche locale et la branche remote
 - `git fetch`: récupère des objets/références d'une branche remote
 - `git pull`: même chose que `git fetch; git merge`
-- `git clone`: télécharge le dépôt à partir d'une branche remote
+- `git clone`: télécharge le repository à partir d'une branche remote
 
 ## Annuler
 
@@ -392,7 +388,7 @@ command is used for merging.
 
 # Advanced Git
 
-- `git config`: Git est [très personnalisable](https://git-scm.com/docs/git-config)
+- `git config`: git est [très personnalisable](https://git-scm.com/docs/git-config)
 - `git clone --depth=1`: clone superficiel, sans l'historique complet des versions
 - `git add -p`: staging interactif
 - `git rebase -i`:  rebasement interactif
@@ -434,11 +430,11 @@ explication détaillée de l'implémentation de Git au-delà du modèle de donn�
     1. Quel était le commentaire associé à la dernière modification de la ligne
        `collections:` de `_config.yml`? (Indice: utiliser `git blame` et `git
        show`).
-1. Une erreur fréquente lors de l'apprentissage de Git est de livrer des fichiers volumineux qui ne devraient pas être gérés par Git ou d'ajouter des informations sensibles. Essayez d'ajouter un fichier à un dépôt, d'effectuer quelques livraisons, puis de supprimer ce fichier de l'historique (vous pouvez consulter cette [rubrique](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)).
+1. Une erreur fréquente lors de l'apprentissage de Git est de commit des fichiers volumineux qui ne devraient pas être gérés par Git ou d'ajouter des informations sensibles. Essayez d'ajouter un fichier à un repository, d'effectuer quelques commits, puis de supprimer ce fichier de l'historique (vous pouvez consulter cette [rubrique](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)).
 1. Cloner un dépôt depuis GitHub, et modifier un de ses fichiers existants. Que se passe-t-il lorsque vous faites `git stash`? Que voyez-vous lorsque vous exécutez `git log --all --oneline`? Exécutez `git stash pop` pour annuler ce que vous avez fait avec `git stash`.
   Dans quel scénario cela peut-il être utile ?
 1. Comme beaucoup d'outils en ligne de commande, Git fournit un fichier de configuration (ou fichier point) appelé  `~/.gitconfig`. Créez un alias dans `~/.gitconfig` pour que lorsque vous lancez `git graph`, vous obteniez la sortie de  `git log --all --graph --decorate --oneline`. Des informations sur les alias git peuvent être trouvées [ici](https://git-scm.com/docs/git-config#Documentation/git-config.txt-alias).
 1. Vous pouvez définir des motifs d'ignorance globaux dans `~/.gitignore_global`  après avoir exécuté
    `git config --global core.excludesfile ~/.gitignore_global`. Faites cela, et configurez votre fichier gitignore global pour ignorer les fichiers temporaires spécifiques à un système d'exploitation ou à un éditeur, comme `.DS_Store`.
-1. Faisez un Fork sur le [répertoire du site web de la classe](https://github.com/missing-semester missing-semester), trouvez une coquille ou une autre amélioration que vous pouvez apporter, et soumettez une demande de modification (pull request) sur GitHub (vous voulez peut-être jeter un oeil [ici](https://github.com/firstcontributions/first-contributions)).
-  Veuillez ne soumettre que des RP utiles (ne nous spammez pas, s'il vous plaît !). Si vous ne trouvez pas d'amélioration à apporter, vous pouvez ignorer cet exercice.
+1. Faites un fork du [répertoire du site web de la classe](https://github.com/missing-semester missing-semester), trouvez une faute de frappe ou une autre amélioration que vous pouvez apporter, et soumettez une demande de modification (pull request) sur GitHub (vous voulez peut-être jeter un oeil [ici](https://github.com/firstcontributions/first-contributions)).
+  Veuillez ne soumettre que des PR utiles (ne nous spammez pas, s'il vous plaît !). Si vous ne trouvez pas d'amélioration à apporter, vous pouvez ignorer cet exercice.
