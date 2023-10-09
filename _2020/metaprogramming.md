@@ -11,7 +11,7 @@ video:
 
 Qu'entendons-nous par "metaprogramming" ? C'est le meilleur terme global que nous ayons trouvé pour désigner l'ensemble des choses qui relèvent davantage du _processus_ que de l'écriture de code ou d'un travail plus efficace. Dans ce cours, nous examinerons les systèmes pour build et tester votre code, ainsi que la gestion des dépendances. Ces éléments peuvent sembler avoir une importance limitée dans votre quotidien d'étudiant, mais dès que vous interagirez avec une base de code plus importante dans le cadre d'un stage ou une fois que vous entrerez dans le "monde réel", vous les verrez partout. Il convient de noter que "metaprogramming" peut également signifier "[programmes qui opèrent sur des programmes](https://en.wikipedia.org/wiki/Metaprogramming)", bien que ce ne soit pas tout à fait la définition que nous utilisons dans le cadre de ce cours.
 
-# Build systems
+# Build un système
 
 Si vous écrivez un article en LaTeX, quelles sont les commandes que vous devez exécuter pour produire votre article ? Qu'en est-il de celles utilisées pour exécuter vos benchmarks, tracer un graphique, puis insérer ce graphique dans votre document ? Ou pour compiler le code fourni dans le cours que vous suivez et ensuite exécuter les tests ?
 
