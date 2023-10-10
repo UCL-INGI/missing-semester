@@ -8,11 +8,11 @@ video:
   id: sz_dsktIjt4
 ---
 
-Avez-vous déjà voulu prendre des données dans un format et les transformer dans un autre format ? Bien sûr que oui ! C'est, en termes très généraux, ce dont il est question dans ce cours. Plus précisément, il s'agit de manipuler des données, qu'elles soient au format texte ou binaire, jusqu'à ce que vous obteniez exactement ce que vous vouliez.
+Avez-vous déjà voulu prendre des données dans un format et les transformer dans un autre format ? Bien sûr que oui ! C'est, en termes très généraux, ce dont il est question dans ce cours. Plus précisément, il s'agit de manipuler des données, qu'elles soient au format texte ou binaire, jusqu'à ce que vous obtenez exactement ce que vous vouliez.
 
 Nous avons déjà vu quelques manipulations de données de base dans les cours précédents. Pratiquement chaque fois que vous utilisez l'opérateur `|`, vous effectuez une sorte de manipulation de données. Prenons une commande comme `journalctl | grep -i intel`. Elle trouve toutes les entrées du journal système qui mentionnent Intel (sans tenir compte de la casse). Vous ne pensez peut-être pas qu'il s'agisse d'une manipulation de données, mais vous passez d'un format (l'ensemble de votre journal système) à un format qui vous est plus utile (uniquement les entrées du journal intel). La plupart des manipulations de données consistent à savoir quels outils sont à votre disposition et comment les combiner.
 
-Commençons par le commencement. Pour manipuler des données, nous avons besoin de deux choses : des données à manipuler et quelque chose à faire avec. Les journaux (logs) constituent souvent une bonne base d'étude, parce que nous voulons souvent y tirer certaines informations, et qu'il n'est pas possible de les lire en entier. Essayons de savoir qui essaie de se connecter à mon serveur en regardant les logs de ce dernier :
+Commençons par le début. Pour manipuler des données, nous avons besoin de deux choses : des données à manipuler et quelque chose à faire avec. Les journaux (logs) constituent souvent une bonne base d'étude, parce que nous voulons souvent y tirer certaines informations, et qu'il n'est pas possible de les lire en entier. Essayons de savoir qui essaie de se connecter à mon serveur en regardant les logs de ce dernier :
 
 ```bash
 ssh myserver journalctl
@@ -52,7 +52,7 @@ Ce que nous venons d'écrire était une simple _expression régulière_ (regex) 
 
 (Vous reconnaîtrez peut-être cette syntaxe de la section "Recherche et remplacement" de nos [notes de cours](/2020/editors/#advanced-vim) sur Vim ! En effet, Vim utilise une syntaxe de recherche et de remplacement similaire à la commande de substitution de `sed`. L'apprentissage d'un outil permet souvent d'en maîtriser d'autres).
 
-## Expressions régulières
+## Expressions régulières (Regex)
 
 Les expressions régulières sont suffisamment courantes et utiles pour que l'on prenne le temps de comprendre leur fonctionnement. Commençons par examiner celle que nous avons utilisée ci-dessus : `/.*Disconnected from /`. Les expressions régulières sont généralement (mais pas toujours) entourées de `/`. La plupart des caractères ASCII ont leur signification normale, mais certains ont un comportement "spécial" en matière de correspondance. Le comportement exact des caractères varie quelque peu d'une implémentation à l'autre des expressions régulières, ce qui peut être une source de grande frustration. Les motifs les plus courants sont les suivants :
 
@@ -66,7 +66,9 @@ Les expressions régulières sont suffisamment courantes et utiles pour que l'on
 
 Les expressions régulières de `sed` sont quelque peu bizarres, et vous devrez mettre un `\` avant la plupart d'entre elles pour leur donner leur signification spéciale. Vous pouvez aussi passer `-E`.
 
-Ainsi, en regardant `/.*Disconnected from /`, nous voyons qu'il correspond à tout texte commençant par n'importe quel nombre de caractères, suivi de la chaîne de caractères "Disconnected from ". C'est ce que nous voulions. Mais attention, les expressions régulières sont délicates. Que se passerait-il si quelqu'un essayait de se connecter avec le nom d'utilisateur "Disconnected from " ? Nous aurions :
+Ainsi, en regardant `/.*Disconnected from /`, nous voyons qu'il correspond à tout texte commençant par n'importe quel nombre de caractères, suivi de la chaîne de caractères "Disconnected from ". C'est ce que nous voulions. Mais attention, les expressions régulières sont délicates. Que se passerait-il si quelqu'un essayait de se connecter avec le nom d'utilisateur "Disconnected from " ? 
+
+Nous aurions :
 
 ```
 Jan 17 03:13:00 thesquareplanet.com sshd[2631]: Disconnected from invalid user Disconnected from 46.97.239.16 port 55920 [preauth]
@@ -236,7 +238,7 @@ rustup toolchain list | grep nightly | grep -vE "nightly-x86" | sed 's/-x86.*//'
 
 ## Manipuler des données binaires
 
-Jusqu'à présent, nous avons surtout parlé de la manipulation de données textuelles, mais les pipes sont tout aussi utiles pour les données binaires. Par exemple, nous pouvons utiliser `ffmpeg` pour capturer une image depuis notre caméra, la convertir en niveaux de gris, la compresser, l'envoyer à une machine distante via SSH, la décompresser sur place, en faire une copie, puis l'afficher.
+Jusqu'à présent, nous avons surtout parlé de la manipulation de données textuelles, mais les pipes sont tout aussi utiles pour les données binaires. Par exemple, nous pouvons utiliser `ffmpeg` pour capturer une image depuis notre caméra, la convertir en grayscale, la compresser, l'envoyer à une machine distante via SSH, la décompresser sur place, en faire une copie, puis l'afficher.
 
 ```bash
 ffmpeg -loglevel panic -i /dev/video0 -frames 1 -f image2 -

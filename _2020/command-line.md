@@ -295,8 +295,7 @@ peut contenir un paramètre :
 ```
 
 Sur chaque machine, `~/.gitconfig_local` peut contenir des paramètres spécifiques à cette
-machine. Vous pouvez même gérer ces fichiers dans un dépôt GitHub séparé pour les
-paramètres spécifiques à chaque machine.
+machine. Vous pouvez même gérer ces fichiers dans un dépôt GitHub séparé pour les paramètres spécifiques à chaque machine.
 
 Cette idée est également utile si vous voulez que différents programmes partagent certaines configurations. Par exemple, si vous voulez que `bash` et `zsh` partagent le même ensemble d'alias, vous pouvez les écrire dans `.aliases` et avoir le bloc suivant dans les deux fichiers de configuration:
 
@@ -324,7 +323,7 @@ Le serveur peut être spécifié par une URL (comme `bar.mit.edu`) ou une IP (qu
 
 Une fonctionnalité souvent négligée de `ssh` est la possibilité d'exécuter des commandes directement.
 `ssh foobar@server ls` exécutera `ls` dans le dossier home de foobar.
-Cela fonctionne aussi avec les pipes, donc `ssh foobar@server ls | grep PATTERN` va "greper" localement la sortie distante de `ls` et `ls | ssh foobar@server grep PATTERN` va "greper" à distance la sortie locale de `ls`.
+Cela fonctionne aussi avec les pipes, donc `ssh foobar@server ls | grep PATTERN` va "grep" localement la sortie distante de `ls` et `ls | ssh foobar@server grep PATTERN` va "grep" à distance la sortie locale de `ls`.
 
 
 ## Clés SSH
