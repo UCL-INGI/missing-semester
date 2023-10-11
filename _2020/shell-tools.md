@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "Les outils du Shell et les scripts"
+title: "Le shell et les scripts"
 date: 2020-01-14
 ready: true
 video:
@@ -8,7 +8,7 @@ video:
   id: kgII-YWo3Zw
 ---
 
-Dans ce cours, nous présenterons quelques bases de l'utilisation de bash comme langage script, ainsi qu'un certain nombre d'outils de l'interpréteur de commandes qui couvrent plusieurs des tâches les plus courantes, que vous serez amené à effectuer en ligne de commande.
+Dans ce cours, nous présenterons quelques bases de l'utilisation de bash comme langage de script, ainsi qu'un certain nombre d'outils de l'interpréteur de commandes qui couvrent plusieurs des tâches les plus courantes, que vous serez amené à effectuer en ligne de commande.
 
 # Shell Scripting
 
@@ -16,7 +16,7 @@ Jusqu'à présent, nous avons vu comment exécuter des commandes dans l'interpr�
 Cependant, dans de nombreux cas, vous voudrez exécuter une série de commandes et utiliser des expressions de flux de contrôle telles que des conditionnelles ou des boucles.
 
 Les scripts Shell constituent l'étape suivante en termes de complexité.
-La plupart des shells possèdent leur propre langage de script avec des variables, un flux de contrôle et sa propre syntaxe.
+La plupart des shells possèdent leur propre langage de script avec des variables, un flux de contrôle et leur propre syntaxe.
 Ce qui différencie les scripts shell des autres langages de programmation de scripts, c'est qu'ils sont optimisés pour effectuer des tâches liées à l'interpréteur de commandes.
 Ainsi, la création de pipelines de commandes, l'enregistrement des résultats dans des fichiers et la lecture de l'entrée standard sont des primitives du langage de script shell, ce qui le rend plus facile à utiliser que les langages de script à usage général.
 Dans cette section, nous nous concentrerons sur les scripts bash, qui sont les plus courants.
@@ -24,7 +24,7 @@ Dans cette section, nous nous concentrerons sur les scripts bash, qui sont les p
 Pour assigner des variables en bash, on utilise la syntaxe `foo=bar` et on accède à la valeur de la variable avec `$foo`.
 A noter que `foo = bar` ne fonctionnera pas car elle est interprétée comme appelant le programme `foo` avec les arguments `=` et `bar`.
 
-En général, dans les scripts shell, le caractère espace permet de diviser les arguments. Ce comportement peut être perturbant au début, c'est pourquoi il faut toujours le vérifier.
+En général, dans les scripts shell, le caractère espace permet de diviser les arguments. Ce comportement peut être perturbant au début, c'est pourquoi il faut toujours faire attention lorsque vous en utilisez.
 
 Les chaînes de caractères dans bash peuvent être définies avec les délimiteurs `'` et `"`, mais ne sont pas équivalents.
 Les chaînes délimitées par `'` sont des chaînes littérales et ne remplacent pas les valeurs des variables, alors que les chaînes délimitées par `"` le font.
@@ -96,7 +96,7 @@ Puisque c'est beacoup d'informations d'un coup, voyons un exemple qui illustre c
 ```bash
 #!/bin/bash
 
-echo "Le programme commence à $(date)" # Date will be substituted
+echo "Le programme commence à $(date)" # date sera remplacé
 
 echo "Execution du programme $0 avec $# arguments et avec le pid $$"
 
