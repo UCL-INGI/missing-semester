@@ -10,7 +10,7 @@ video:
 
 Écrire des textes en anglais et écrire du code sont des activités très différentes. En programmation, vous passez plus de temps à changer de fichier, à lire, à naviguer et à éditer du code qu'à écrire un long texte. Il est donc logique qu'il existe différents types de programmes pour écrire des textes en anglais et du code (par exemple, Microsoft Word ou Visual Studio Code).
 
-En tant que programmeurs, nous passons le plus de notre temps à éditer du code, et il en vaut la peine d'investir du temps dans la maîtrise d'un éditeur adapté à vos besoins. Voici comment apprendre un nouvel éditeur :
+En tant que programmeurs, nous passons la plupart de notre temps à éditer du code, et il en vaut la peine d'investir du temps dans la maîtrise d'un éditeur adapté à vos besoins. Voici comment apprendre un nouvel éditeur :
 
 - Commencez par un tutoriel (ce cours, plus les ressources que nous indiquons).
 - Utilisez l'éditeur pour tous vos besoins en matière d'édition de texte (même si cela vous ralentit au début).
@@ -27,7 +27,7 @@ Code](https://code.visualstudio.com/) est l'éditeur le plus populaire. [Vim](ht
 
 ## Vim
 
-Tous les professeurs de ce cours utilisent Vim comme éditeur. Vim a une histoire riche ; il est issu de l'éditeur Vi (1976), et il est toujours en cours de développement aujourd'hui. Vim a des idées vraiment intéressantes, et c'est pourquoi de nombreux outils supportent un mode d'émulation Vim (par exemple, 1,4 million de personnes ont installé [l'émulation Vim pour VS code](https://github.com/VSCodeVim/Vim)). Vim vaut probablement la peine d'être appris même si vous finissez par passer à un autre éditeur de texte.
+Tous les professeurs de ce cours utilisent Vim comme éditeur. Vim a une histoire riche ; il est issu de l'éditeur Vi (1976), et il est toujours en cours de développement aujourd'hui. Vim a des idées vraiment intéressantes, et c'est pourquoi de nombreux outils supportent un mode d'émulation Vim (par exemple, 1,4 million de personnes ont installé [l'émulation Vim pour VS code](https://github.com/VSCodeVim/Vim)). Vim vaut probablement la peine d'être appris même si vous finissez par utiliser un autre éditeur de texte.
 
 Il n'est pas possible d'enseigner toutes les fonctionnalités de Vim en 50 minutes, c'est pourquoi nous allons nous concentrer sur l'explication de la philosophie de Vim, vous enseigner les bases, vous montrer quelques fonctionnalités plus avancées et vous donner les ressources nécessaires pour maîtriser l'outil.
 

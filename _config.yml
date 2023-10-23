@@ -33,7 +33,7 @@ exclude:
   - _2020/potpourri.md
   - _2020/security.md
   - _2020/version-control.md
-  - _2020/editors.md
+  # - _2020/editors.md
   - _2020/debugging-profiling.md
   - _2020/data-wrangling.md
   - _2020/qa.md
