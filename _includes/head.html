@@ -58,4 +58,8 @@
     gtag('config', '{{ site.analytics.tracking_id }}');
   </script>
 
+  {% if site.google_analytics and jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
+
 </head>

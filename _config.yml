@@ -3,6 +3,8 @@ title: "Le Cours d'Informatique Manquant"
 #url: https://missing.csail.mit.edu
 url: https://ucl-ingi.github.io
 baseurl: /missing-semester
+# Google Analytics
+google_analytics: G-0YBDKQN1LS
 
 # Settings
 markdown: kramdown
