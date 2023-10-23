@@ -183,7 +183,7 @@ Regardez la vidéo du cours pour la démonstration. Comparez la façon dont les 
 
 Vim est personnalisé via un fichier texte de configuration dans `~/.vimrc` (contenant des commandes Vimscript). Il y a probablement beaucoup de paramètres de base que vous souhaitez activer.
 
-Nous fournissons une configuration de base bien documentée que vous pouvez utiliser comme point de départ. Nous vous recommandons de l'utiliser parce qu'elle corrige certains comportements bizarres de Vim par défaut. **Téléchargez notre configuration [ici](/2020/files/vimrc) et sauvegardez-la dans `~/.vimrc`**.
+Nous fournissons une configuration de base bien documentée que vous pouvez utiliser comme point de départ. Nous vous recommandons de l'utiliser parce qu'elle corrige certains comportements bizarres de Vim par défaut. **Téléchargez notre configuration [ici]({{site.baseurl}}/2020/files/vimrc) et sauvegardez-la dans `~/.vimrc`**.
 
 Vim est hautement personnalisable, et cela vaut la peine de passer du temps à explorer les options de personnalisation. Vous pouvez vous inspirer des dotfiles d'autres sur GitHub, par exemple, les configurations Vim de vos instructeurs ([Anish](https://github.com/anishathalye/dotfiles/blob/master/vimrc),
 [Jon](https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim) (utilise [neovim](https://neovim.io/)),
@@ -257,7 +257,7 @@ commande `:s` (substituer) ([documentation](http://vim.wikia.com/wiki/Search_and
 - Les macros peuvent être récursives
     - effacez d'abord la macro avec `q{caractère}q`
     - enregistrez la macro, avec `@{caractère}` pour invoquer la macro de manière récursive (ce sera un no-op jusqu'à ce que l'enregistrement soit terminé)
-- Exemple : conversion de xml en json ([fichier](/2020/files/example-data.xml))
+- Exemple : conversion de xml en json ([fichier]({{site.baseurl}}/2020/files/example-data.xml))
     - Tableau d'objets avec les clés "name" / "email"
     - Utiliser un programme Python ?
     - Utiliser sed / regexes
@@ -296,7 +296,7 @@ commande `:s` (substituer) ([documentation](http://vim.wikia.com/wiki/Search_and
 # Exercices
 
 1. Finissez `vimtutor`. Note : il est préférable d'utiliser une fenêtre de terminal de [80x24](https://en.wikipedia.org/wiki/VT100) (80 colonnes par 24 lignes).
-1. Téléchargez notre [vimrc de base](/2020/files/vimrc) et sauvegardez-le dans `~/.vimrc`. Lisez le fichier bien commenté (en utilisant Vim !), et observez comment Vim se présente et se comporte légèrement différemment avec la nouvelle configuration.
+1. Téléchargez notre [vimrc de base]({{site.baseurl}}/2020/files/vimrc) et sauvegardez-le dans `~/.vimrc`. Lisez le fichier bien commenté (en utilisant Vim !), et observez comment Vim se présente et se comporte légèrement différemment avec la nouvelle configuration.
 1. Installez et configurez un plugin : [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim).
     1. Créez le répertoire des plugins avec `mkdir -p ~/.vim/pack/vendor/start`
     1. Téléchargez le plugin : `cd ~/.vim/pack/vendor/start ; git clone https://github.com/ctrlpvim/ctrlp.vim`
@@ -306,4 +306,4 @@ commande `:s` (substituer) ([documentation](http://vim.wikia.com/wiki/Search_and
 1. Utilisez Vim pour _tous_ vos travaux d'édition de texte pendant un mois. Si quelque chose vous semble inefficace, ou si vous pensez qu'il doit y avoir un meilleur moyen, essayez de chercher sur Google, il y en a probablement un. Si vous êtes bloqué, venez aux heures de permanence ou envoyez-nous un mail.
 1. Configurez vos autres outils pour qu'ils utilisent les "bindings" Vim (voir les instructions ci-dessus).
 1. Personnalisez davantage votre `~/.vimrc` et installez d'autres plugins.
-1. (Avancé) Convertir du XML en JSON ([fichier d'exemple](/2020/files/example-data.xml)) en utilisant les macros Vim. Essayez de le faire par vous-même, mais vous pouvez consulter la section sur les [macros](#macros) ci-dessus si vous êtes bloqué.
+1. (Avancé) Convertir du XML en JSON ([fichier d'exemple]({{site.baseurl}}/2020/files/example-data.xml)) en utilisant les macros Vim. Essayez de le faire par vous-même, mais vous pouvez consulter la section sur les [macros](#macros) ci-dessus si vous êtes bloqué.
