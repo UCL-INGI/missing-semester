@@ -302,7 +302,7 @@ commande `:s` (substituer) ([documentation](http://vim.wikia.com/wiki/Search_and
     1. Téléchargez le plugin : `cd ~/.vim/pack/vendor/start ; git clone https://github.com/ctrlpvim/ctrlp.vim`
     1. Lisez la [documentation](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md) du plugin. Essayez d'utiliser CtrlP pour trouver un fichier en naviguant jusqu'au dossier d'un projet, en ouvrant Vim et en utilisant la ligne de commande de Vim pour lancer `:CtrlP`.
     1. Personnalisez CtrlP en ajoutant une [configuration](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md#basic-options) à votre `~/.vimrc` pour ouvrir CtrlP en appuyant sur Ctrl-P.
-1. Pour vous entraîner à utiliser Vim, refaites la [démo](#demo) du cours sur votre propre machine.
+1. Pour vous entraîner à utiliser Vim, refaites la [démo](#démonstration) du cours sur votre propre machine.
 1. Utilisez Vim pour _tous_ vos travaux d'édition de texte pendant un mois. Si quelque chose vous semble inefficace, ou si vous pensez qu'il doit y avoir un meilleur moyen, essayez de chercher sur Google, il y en a probablement un. Si vous êtes bloqué, venez aux heures de permanence ou envoyez-nous un mail.
 1. Configurez vos autres outils pour qu'ils utilisent les "bindings" Vim (voir les instructions ci-dessus).
 1. Personnalisez davantage votre `~/.vimrc` et installez d'autres plugins.
