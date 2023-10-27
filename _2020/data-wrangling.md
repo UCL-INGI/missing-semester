@@ -8,7 +8,7 @@ video:
   id: sz_dsktIjt4
 ---
 
-Avez-vous déjà voulu prendre des données dans un format et les transformer dans un autre format ? Bien sûr que oui ! C'est, en termes très généraux, ce dont il est question dans ce cours. Plus précisément, il s'agit de manipuler des données, qu'elles soient au format texte ou binaire, jusqu'à ce que vous obtenez exactement ce que vous vouliez.
+Avez-vous déjà voulu prendre des données dans un format et les transformer dans un autre format ? Bien sûr que oui ! C'est, en termes très généraux, ce dont il est question dans ce cours. Plus précisément, il s'agit de manipuler des données, qu'elles soient au format texte ou binaire, jusqu'à ce que vous obteniez exactement ce que vous vouliez.
 
 Nous avons déjà vu quelques manipulations de données de base dans les cours précédents. Pratiquement chaque fois que vous utilisez l'opérateur `|`, vous effectuez une sorte de manipulation de données. Prenons une commande comme `journalctl | grep -i intel`. Elle trouve toutes les entrées du journal système qui mentionnent Intel (sans tenir compte de la casse). Vous ne pensez peut-être pas qu'il s'agisse d'une manipulation de données, mais vous passez d'un format (l'ensemble de votre journal système) à un format qui vous est plus utile (uniquement les entrées du journal intel). La plupart des manipulations de données consistent à savoir quels outils sont à votre disposition et comment les combiner.
 
@@ -48,9 +48,9 @@ ssh myserver journalctl
  | sed 's/.*Disconnected from //'
 ```
 
-Ce que nous venons d'écrire était une simple _expression régulière_ (regex) ; une construction puissante qui vous permet de faire correspondre du texte à des "motifs" (patterns). La commande `s` s'écrit sous la forme : `s/REGEX/SUBSTITUTION/`, où `REGEX` est l'expression régulière que vous souhaitez rechercher, et `SUBSTITUTION` est le texte que vous souhaitez substituer au texte correspondant.
+Ce que nous venons d'écrire est une simple _expression régulière_ (regex) ; une construction puissante qui vous permet de faire correspondre du texte à des "motifs" (patterns). La commande `s` s'écrit sous la forme : `s/REGEX/SUBSTITUTION/`, où `REGEX` est l'expression régulière que vous souhaitez rechercher, et `SUBSTITUTION` est le texte que vous souhaitez substituer au texte correspondant.
 
-(Vous reconnaîtrez peut-être cette syntaxe de la section "Recherche et remplacement" de nos [notes de cours](/2020/editors/#advanced-vim) sur Vim ! En effet, Vim utilise une syntaxe de recherche et de remplacement similaire à la commande de substitution de `sed`. L'apprentissage d'un outil permet souvent d'en maîtriser d'autres).
+(Vous reconnaîtrez peut-être cette syntaxe de la section "Recherche et remplacement" de nos [notes de cours]({{site.baseurl}}/2020/editors/#advanced-vim) sur Vim ! En effet, Vim utilise une syntaxe de recherche et de remplacement similaire à la commande de substitution de `sed`. L'apprentissage d'un outil permet souvent d'en maîtriser d'autres).
 
 ## Expressions régulières (Regex)
 
