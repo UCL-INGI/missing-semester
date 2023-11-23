@@ -159,7 +159,7 @@ ssh myserver journalctl
 ```
 
 
-Si vous utilisez macOS : notez que la commande telle qu'elle est montrée ne fonctionnera pas avec le `paste` BSD inclus avec macOS. Voir [l'exercice 4 du cours sur les outils de l'interpréteur de commandes](/2020/shell-tools/#exercises) pour plus d'informations sur la différence entre BSD et GNU coreutils et les instructions pour installer GNU coreutils sur macOS.
+Si vous utilisez macOS : notez que la commande telle qu'elle est montrée ne fonctionnera pas avec le `paste` BSD inclus avec macOS. Voir [l'exercice 4 du cours sur les outils de l'interpréteur de commandes]({{site.baseurl}}/2020/shell-tools/#exercises) pour plus d'informations sur la différence entre BSD et GNU coreutils et les instructions pour installer GNU coreutils sur macOS.
 
 Commençons par `paste` : il vous permet de combiner des lignes (`-s`) à l'aide d'un délimiteur à un seul caractère (`-d` ; `,` dans ce cas). Mais qu'est-ce que c'est que cette histoire d'`awk` ?
 
