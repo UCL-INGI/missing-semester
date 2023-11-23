@@ -167,7 +167,7 @@ Utilisez [Signal](https://signal.org/) ou [Keybase](https://keybase.io/). La sé
 
 ## SSH
 
-Nous avons abordé l'utilisation de SSH et des clés SSH dans un [cours précédent]({{site.baseurl}}/2020/command-line/#remote-machines). Examinons maintenant les aspects cryptographiques.
+Nous avons abordé l'utilisation de SSH et des clés SSH dans un [cours précédent]({{site.baseurl}}/2020/command-line/#machines-distantes). Examinons maintenant les aspects cryptographiques.
 
 Lorsque vous exécutez `ssh-keygen`, il génère une paire de clés asymétriques, `public_key`, `private_key`. Celle-ci est générée aléatoirement, en utilisant l'entropie fournie par le système d'exploitation (collectée à partir d'événements matériels, etc.). La clé publique est stockée telle quelle (elle est publique, il n'est donc pas important de la garder secrète), mais au repos, la clé privée doit être chiffrée sur le disque. Le programme `ssh-keygen` demande à l'utilisateur de saisir une phrase de passe, qui est transmise à une fonction de dérivation de clé pour produire une clé, qui est ensuite utilisée pour chiffrer la clé privée à l'aide d'un algorithme de chiffrement symétrique.
 
