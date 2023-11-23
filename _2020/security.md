@@ -8,7 +8,7 @@ video:
   id: tjwobAmnKTo
 ---
 
-Le cours sur [la sécurité et la vie privée](/2019/security/) de l'année dernière s'est concentré sur la façon dont vous pouvez être plus en sécurité en tant qu'utilisateur d'ordinateur. Cette année, nous nous concentrerons sur les concepts de sécurité et de cryptographie qui sont pertinents pour comprendre les outils couverts précédemment dans ce cours, tels que l'utilisation des fonctions de hachage dans Git ou les fonctions de dérivation de clé et les cryptosystèmes symétriques/asymétriques dans SSH.
+Le cours sur [la sécurité et la vie privée]({{site.baseurl}}/2019/security/) de l'année dernière s'est concentré sur la façon dont vous pouvez être plus en sécurité en tant qu'utilisateur d'ordinateur. Cette année, nous nous concentrerons sur les concepts de sécurité et de cryptographie qui sont pertinents pour comprendre les outils couverts précédemment dans ce cours, tels que l'utilisation des fonctions de hachage dans Git ou les fonctions de dérivation de clé et les cryptosystèmes symétriques/asymétriques dans SSH.
 
 Ce cours ne remplace pas un cours plus rigoureux et plus complet sur la sécurité des systèmes informatiques ([6.858](https://css.csail.mit.edu/6.858/)) ou la cryptographie ([6.857](https://courses.csail.mit.edu/6.857/) et 6.875). Ne travaillez pas dans le domaine de la sécurité sans avoir reçu une formation formelle en la matière. À moins d'être un expert, n'élaborez pas votre propre cryptographie. Le même principe s'applique à la sécurité des systèmes.
 
@@ -167,7 +167,7 @@ Utilisez [Signal](https://signal.org/) ou [Keybase](https://keybase.io/). La sé
 
 ## SSH
 
-Nous avons abordé l'utilisation de SSH et des clés SSH dans un [cours précédent](/2020/command-line/#remote-machines). Examinons maintenant les aspects cryptographiques.
+Nous avons abordé l'utilisation de SSH et des clés SSH dans un [cours précédent]({{site.baseurl}}/2020/command-line/#remote-machines). Examinons maintenant les aspects cryptographiques.
 
 Lorsque vous exécutez `ssh-keygen`, il génère une paire de clés asymétriques, `public_key`, `private_key`. Celle-ci est générée aléatoirement, en utilisant l'entropie fournie par le système d'exploitation (collectée à partir d'événements matériels, etc.). La clé publique est stockée telle quelle (elle est publique, il n'est donc pas important de la garder secrète), mais au repos, la clé privée doit être chiffrée sur le disque. Le programme `ssh-keygen` demande à l'utilisateur de saisir une phrase de passe, qui est transmise à une fonction de dérivation de clé pour produire une clé, qui est ensuite utilisée pour chiffrer la clé privée à l'aide d'un algorithme de chiffrement symétrique.
 
@@ -183,7 +183,7 @@ security concepts, tips
 
 # Ressources
 
-- [Notes de 2019](/2019/security/): où cette conférence était plus axée sur la sécurité et la protection de la vie privée en tant qu'utilisateur d'ordinateur
+- [Notes de 2019]({{site.baseurl}}/2019/security/): où cette conférence était plus axée sur la sécurité et la protection de la vie privée en tant qu'utilisateur d'ordinateur
 - [Réponses correctes en matière de cryptographie](https://latacora.micro.blog/2018/04/03/cryptographic-right-answers.html): permet de répondre à la question "quelle cryptographie dois-je utiliser pour X ?" pour de X choses.
 
 # Exercises
