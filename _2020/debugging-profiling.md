@@ -25,7 +25,7 @@ Une deuxième approche consiste à utiliser des logs dans votre programme, au li
 - Les logs supportent des niveaux de gravité (tels que INFO, DEBUG, WARN, ERROR, etc), qui vous permettent de filtrer la sortie en conséquence.
 - Pour les nouveaux problèmes, il y a de fortes chances que vos logs contiennent suffisamment d'informations pour détecter ce qui ne va pas.
 
-[Voici](/static/files/logger.py) un exemple de code qui log des messages :
+[Voici]({{site.baseurl}}/static/files/logger.py) un exemple de code qui log des messages :
 
 ```bash
 $ python logger.py
