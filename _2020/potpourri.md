@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "Pot-pourri"
+title: "Un peu de tout"
 date: 2020-01-29
 ready: true
 video:
@@ -107,7 +107,7 @@ Les principales caractéristiques d'une bonne solution de sauvegarde sont le ver
 
 Les sauvegardes vont au-delà des fichiers locaux de votre ordinateur. Compte tenu de la croissance significative des applications web, de grandes quantités de vos données sont stockées uniquement dans le cloud. Par exemple, votre webmail, vos photos sur les réseaux sociaux, vos playlists de musique dans les services de streaming ou vos documents en ligne disparaissent si vous perdez l'accès aux comptes correspondants. L'idéal est de disposer d'une copie hors ligne de ces informations, et vous pouvez trouver des outils en ligne conçus pour récupérer les données et les sauvegarder.
 
-Pour une explication plus détaillée, voir les notes de cours de 2019 sur les [sauvegardes](/2019/backups). 
+Pour une explication plus détaillée, voir les notes de cours de 2019 sur les [sauvegardes]({{site.baseurl}}/2019/backups). 
 
 ## APIs
 
